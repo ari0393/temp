@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[113]:
+# In[199]:
 
 
 import requests
@@ -23,7 +23,7 @@ from plotly.colors import DEFAULT_PLOTLY_COLORS
 import plotly.express as px
 
 
-# In[114]:
+# In[200]:
 
 
 #김아리
@@ -108,7 +108,7 @@ shelters = shelter.to_crs(4326)
 shelter_json = shelters.__geo_interface__
 
 
-# In[115]:
+# In[201]:
 
 
 #이윤진
@@ -180,7 +180,7 @@ point_utm = point_utm.to_crs(4326)
 point_json = point_utm.__geo_interface__
 
 
-# In[116]:
+# In[202]:
 
 
 #김동현
@@ -233,7 +233,7 @@ districts = [
 ]
 
 
-# In[117]:
+# In[203]:
 
 
 import folium
@@ -343,7 +343,7 @@ initial_map = bs.explore(m=initial_map, color='#FFA7A7', style_kwds={'alpha': 0.
 initial_map = shel.explore(m=initial_map, color='#4374D9', style_kwds={'weight': 2})
 
 
-# In[145]:
+# In[214]:
 
 
 from dash import Dash, dcc, html, Input, Output, State
@@ -358,8 +358,7 @@ app.layout = html.Div([
     html.H2('서울 대피소 현황',
             style = {'textAlign': 'center', 
                      'marginBottom': 10, 
-                     'marginTop': 10,
-                     'background-color': '#f5f2e9'}),
+                     'marginTop': 10}),
     dcc.Tabs([
         dcc.Tab(label = '지진대피소',
                children=[html.P("(격자인구에 대한) 지진 대피소의 입지현황을 확인하고 싶은 구를 고르시오.", style = {'float':'center','marginLeft':250, 'fontWeight': 'bold'}),
@@ -440,7 +439,7 @@ app.layout = html.Div([
         ])
 
 
-# In[139]:
+# In[215]:
 
 
 def create_folium_map(district):
@@ -457,7 +456,7 @@ def create_folium_map(district):
     return m._repr_html_()
 
 
-# In[140]:
+# In[216]:
 
 
 @app.callback(
@@ -468,7 +467,7 @@ def update_folium_map(selected_district):
     return create_folium_map(selected_district)
 
 
-# In[141]:
+# In[217]:
 
 
 @app.callback(Output('map', 'figure'),
@@ -508,7 +507,7 @@ def update_output(val):
     return figure
 
 
-# In[142]:
+# In[218]:
 
 
 @app.callback(
@@ -566,7 +565,7 @@ def update_output(val):
     return figure
 
 
-# In[143]:
+# In[219]:
 
 
 @app.callback(Output('maps', 'figure'),
@@ -606,7 +605,7 @@ def update_output(val):
     return figure
 
 
-# In[144]:
+# In[220]:
 
 
 @app.callback(Output('shelters','figure'),
@@ -654,7 +653,7 @@ def update_output(val):
     return figure
 
 
-# In[135]:
+# In[221]:
 
 
 # 서울시 구별 침수 피해 빈도수
@@ -694,7 +693,7 @@ def update_output(val):
     return figure
 
 
-# In[136]:
+# In[222]:
 
 
 # 서울시 침수지역 + 대피소 위치
@@ -718,7 +717,7 @@ def update_map(buffer_distance):
     return updated_map._repr_html_()
 
 
-# In[137]:
+# In[223]:
 
 
 if __name__=='__main__':
