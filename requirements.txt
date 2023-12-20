@@ -4,4 +4,7 @@ requests == 2.31.0
 matplotlib == 3.7.1
 dash == 2.14.1
 geopandas == 0.13.2
-
+folium == 0.14.0
+dash_core_components == 2.0.0
+dash_html_components == 2.0.0
+plotly == 5.9.0
